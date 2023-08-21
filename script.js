@@ -119,7 +119,7 @@ contentContainer.addEventListener("click", (event) => {
             }
             console.log(seconds_2)
             console.log(DOMCronometer.textContent.slice(0, 3))
-        }, 0.01)
+        }, 1000)
         event.target.id = "not-temp"
         clockAudioEffect.play()
         changeIconFromButton("play")
