@@ -9,7 +9,7 @@ const DOMcircle = document.getElementsByClassName("fa-circle")
 
 
 /* dom button */
-const playButton = document.getElementsByClassName("temp")[0]
+const playButton = document.getElementById("temp")
 const contentContainer = document.getElementsByClassName("container")[0]
 const playIcon = document.getElementsByClassName("fa-play")[0]
 const pauseIcon = "fa-pause"
@@ -66,8 +66,8 @@ function resetAudio(audioObject, time) {
     })
 }
 
-contentContainer.addEventListener("click", (event) => {
-    if (event.target.id == "temp") {
+playButton.addEventListener("click", () => {
+    if (playButton.id == "temp") {
         flag = true
         startTimer = setInterval(() => {
             seconds_counter++
@@ -120,13 +120,13 @@ contentContainer.addEventListener("click", (event) => {
             console.log(seconds_2)
             console.log(DOMCronometer.textContent.slice(0, 3))
         }, 1000)
-        event.target.id = "not-temp"
+        playButton.id = "not-temp"
         clockAudioEffect.play()
         changeIconFromButton("play")
 
     } else {
         clearInterval(startTimer)
-        event.target.id = "temp"
+        playButton.id = "temp"
         clockAudioEffect.pause()
         changeIconFromButton("pause")
     }
